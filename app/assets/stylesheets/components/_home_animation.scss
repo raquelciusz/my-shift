@@ -19,16 +19,40 @@
   background-size: cover;
   height: 90vh;
 }
+
+// Specific CSS for your home-page
+
+.plane-bg {
+  background-image: url("front-bg.svg");
+  background-repeat: repeat-y;
+  background-size: auto auto;
+  height: 100vh;
+  width: 10%;
+  margin: 0 auto;
+}
+
 #sobre {
   background-color: $ice;
   background-repeat: no-repeat;
   background-size: cover;
   height: 90vh;
 }
-iframe {
-  border-radius: 15px;
-  width: 800px;
-  height: 480px;
+.video-container {
+  position: relative;
+  overflow: hidden;
+  padding-top: 40%; /* 16:9 aspect ratio (9 / 16 * 100%) */
+  border-radius: 15px; /* Adjust the border-radius as needed */
+  width: 70%; /* Reduce the width by 30% */
+  margin: 0 auto; /* Center the container horizontally */
+}
+
+.video-container iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border: none; /* Remove the border */
 }
 
 // cards
@@ -166,9 +190,11 @@ iframe {
   font-size: 1.5em;
   font-family: $body-font;
   font-weight: bold;
+  text-align: center;
 }
 .home-h1-red {
   color: $red;
+  text-align: center;
 }
 
 .card-sobre {
@@ -237,6 +263,8 @@ iframe {
   font-family: $headers-font;
   width: 60%;
   margin: 12px auto;
+  padding-top: 50px;
+  text-align: center;
 }
 
 .home-desc-bold {
