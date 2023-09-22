@@ -33,5 +33,5 @@ local:
 #   primary: local
 #   mirrors: [ amazon, google, microsoft ]
 cloudinary:
-  service: Cloudinary
+  service: cloudinary
   folder: <%= Rails.env %>
