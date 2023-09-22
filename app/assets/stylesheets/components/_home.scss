@@ -1,0 +1,461 @@
+/* Import Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@600;700&display=swap');
+
+/* General Styles */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* Set a base font size for better responsiveness */
+html {
+  font-size: 16px; /* You can adjust this as needed */
+}
+
+/* Define your color variables here if needed */
+$dark-blue: #003366;
+$red: #FF0000;
+
+/* Page Container */
+.page-contain {
+  font-family: 'Open Sans', sans-serif;
+  min-height: 100vh;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-image: url('planes-bg.jpg');
+  background-repeat: repeat;
+  background-size: 100% auto;
+  opacity: 0.2;
+}
+
+/* Header Styles */
+.home-container {
+  position: relative;
+  margin-top: 6em;
+  max-width: 100%;
+
+  @media (min-width: 768px) {
+    &::before {
+      content: "";
+      opacity: 0.2;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      margin: 10px 0;
+      z-index: -1;
+    }
+  }
+}
+
+/* Home Descriptions */
+.home-desc,
+.home-desc-bold {
+  color: $dark-blue;
+  font-family: 'Poppins', sans-serif;
+}
+
+.home-desc {
+  font-size: 2em;
+  margin: 20px;
+  padding-top: 50px;
+  text-align: center;
+}
+
+/* Home Description Bold */
+.home-desc-bold {
+  font-size: 20px;
+  font-weight: bold;
+}
+
+/* Home H1 Blue */
+.home-h1-blue {
+  color: $dark-blue;
+  font-family: 'Poppins', sans-serif;
+  font-size: 2em;
+  font-weight: bold;
+  margin-top: 0.1em;
+  text-align: center;
+}
+
+/* Home H1 Red */
+.home-h1-red {
+  color: $red;
+  text-align: center;
+}
+
+/* Home Intro Section */
+.home-intro {
+  display: flex;
+  height: 100vh; /* takes up 100% of the viewport height */
+  justify-content: space-around;
+  align-items: center; /* center the content vertically */
+  width: 100%; /* takes up 100% of the container width */
+}
+
+/* Page Container */
+.page-contain {
+  align-items: center;
+  background-position: center;
+  background-size: cover;
+  display: flex;
+  font-family: 'Open Sans', sans-serif;
+  justify-content: center;
+  min-height: 100vh;
+  padding: 0;
+}
+
+/* Plane Background */
+.plane-bg {
+  background-image: url('planes-bg.jpg');
+  background-repeat: repeat;
+  background-size: 100% auto;
+  opacity: 0.2;
+  height: 100%;
+  width: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: -1;
+}
+
+/* Video Container */
+.video-container {
+  border-radius: 15px;
+  margin: 0 auto;
+  overflow: hidden;
+  padding-top: 73.125%; /* 56.25% * 1.3 = 73.125% */
+  position: relative;
+  width: 91%; /* 70% * 1.3 = 91% */
+
+  iframe {
+    border: none;
+    height: 100%;
+    left: 0;
+    position: absolute;
+    top: 0;
+    width: 100%;
+  }
+}
+
+
+
+/* Keyframes */
+@keyframes point {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(.125em);
+  }
+}
+
+/* Media Queries for Responsiveness */
+
+/* Tablet and Desktop */
+@media (min-width: 768px) {
+  .combined-section {
+    flex-direction: row; /* Change to row on tablet and desktop */
+  }
+
+  .content-section,
+  .team-section {
+    width: 50%; /* Limit the maximum width on tablet and desktop */
+    max-width: none; /* Remove max-width restriction */
+  }
+  .div-sobre {
+    flex-direction: column;
+    display: flex;
+    margin: 10px 0;
+    flex-wrap: wrap;  // allow the items to wrap to the next line
+    justify-content: space-between;  // distribute items evenly
+  }
+
+  .coluna-50 {
+    width: 40%;
+  }
+  .home-intro {
+    flex-direction: column;
+    height: auto; /* Auto height because content will be stacked */
+  }
+}
+
+/* Mobile */
+@media (max-width: 767px) {
+  .div-sobre {
+    flex-direction: column;
+  }
+
+  .coluna-50 {
+    width: 100%;
+    flex-flow: column wrap;
+  }
+
+  /* Stack .card-sobre elements */
+  .card-sobre {
+    margin: 10px 0;
+    width: 100%;
+  }
+
+  /* Ensure the last card in the Cards Section does not overflow */
+  .home-cards .container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .home-cards .container .col-md-4 {
+    flex: 1; /* Allow cards to take full width on small screens */
+    max-width: 100%; /* Ensure cards don't exceed container width */
+  }
+}
+
+/* Team Card Style */
+.div-sobre .card-sobre {
+  max-width: 600px; /* adjust to your preferred width */
+  width: 100%;
+  margin: 15px auto;
+}
+
+/* Content Card Style */
+.content-section .card {
+  max-width: 600px; /* Same max-width as Team Cards */
+  width: 100%;
+  margin: 15px auto;
+}
+
+/* Home Cards */
+.home-cards {
+  display: flex;
+  background-image: url("world-map-pins.jpg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  min-height: 80vh;  /* Change from height to min-height */
+  justify-content: center;
+  align-items: center;
+  .container {
+    .row {
+      flex-wrap: wrap;  /* Add flex-wrap */
+    }
+  }
+}
+
+/* Combined Section for Content and Team */
+.combined-section {
+  display: flex;
+  flex-direction: column; /* Stacks them vertically on mobile */
+  align-items: center; /* Centers content vertically and horizontally */
+
+  @media (min-width: 992px) {
+    flex-direction: row; /* Change to row on desktop */
+  }
+}
+
+/* Style for Content and Team Sections */
+.content-section,
+.team-section {
+  width: 100%; /* Takes full width by default on mobile */
+
+  @media (min-width: 992px) {
+    width: 50%; /* Limit the maximum width on desktop */
+  }
+}
+
+/* Style for Content and Team Cards */
+.card,
+.card-sobre {
+  flex: 1;
+  max-width: 100%;  /* Ensure cards don't exceed container width */
+
+  @media (max-width: 767px) {
+    max-width: 100%;  /* Ensure cards take full width on small screens */
+  }
+}
+
+/* Background Cards */
+.card-about,
+.card-sobre {
+  align-items: center;
+  background: white;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+  display: flex;
+  height: 120px;
+  overflow: hidden;
+}
+
+.card-sobre h2 {
+  font-size: 16px;
+  font-weight: bold;
+  margin: 0;
+}
+
+.card-sobre img {
+  background-color: $light-blue;
+  height: 100%;
+  object-fit: cover;
+  width: 120px;
+}
+
+.card-sobre-infos {
+  padding: 16px;
+}
+
+.card-sobre p {
+  font-size: 20px;
+  line-height: 1.4;
+  margin-bottom: 0;
+  margin-top: 8px;
+  opacity: .7;
+}
+
+/* Columns */
+.col,
+.col-7 {
+  align-items: center;
+  display: flex;
+  flex: 1;
+  justify-content: center;
+}
+
+.coluna-50 {
+  text-align: justify;
+  width: 40%;
+
+  h5 {
+    line-height: 1.5;
+  }
+}
+
+/* Container */
+.container-fluid {
+  padding: 0;
+}
+
+/* Data Cards */
+.data-card {
+  display: flex;
+  flex-direction: column;
+  // max-height: 21em;
+  max-width: calc(20.75em * 1.1);
+  min-height: calc(2.75em * 0.9);
+  overflow: hidden;
+  border-radius: .5em;
+  text-decoration: none;
+  background: $ice;
+  margin: auto 20px;
+  padding: 2.5em 2.5em;
+  box-shadow: 0 1.5em 2.5em -.5em rgba(#000000, .1);
+  transition: transform .45s ease, background .45s ease;
+  text-align: justify;
+  text-justify: inter-word;
+  
+  // text-indent: 40px;
+
+  h3 {
+    color: #2E3C40;
+    font-size: 2.5em;
+    font-weight: 600;
+    line-height: 1;
+    padding-bottom: .5em;
+    margin: 0 0 0.142857143em;
+    border-bottom: 2px solid $red;
+    transition: color .45s ease, border .45s ease;
+  }
+
+  h4 {
+    color: #627084;
+    font-size: 1.125em;
+    font-weight: 700;
+    line-height: 1;
+    letter-spacing: 0.1em;
+    margin: 0 0 1.777777778em;
+    transition: color .45s ease;
+  }
+
+  p {
+    opacity: 0;
+    color: #FFFFFF;
+    font-weight: 600;
+    transform: translateY(-1em);
+    transition: opacity .45s ease, transform .5s ease;
+  }
+
+  .link-text {
+    display: block;
+    color: $red;
+    font-size: 1.125em;
+    font-weight: 600;
+    line-height: 1.2;
+    margin: auto 0 0;
+    transition: color .45s ease;
+
+    svg {
+      margin-left: .5em;
+      transition: transform .6s ease;
+
+      path {
+        transition: fill .45s ease;
+      }
+    }
+  }
+
+  &:hover {
+    background: $red;
+    transform: scale(1.02);
+
+    h3 {
+      color: $ice;
+      border-bottom-color: $red;
+    }
+
+    h4 {
+      color: $ice;
+    }
+
+    p {
+      opacity: 1;
+      transform: none;
+    }
+
+    .link-text {
+      color: $ice;
+
+      svg {
+        animation: point 1.25s infinite alternate;
+
+        path {
+          fill: $ice;
+        }
+      }
+    }
+  }
+
+  @media (max-width: 768px) {
+    /* Tablet view */
+    .data-card {
+      flex: 0 0 100%; /* Reset flex properties to make it stack vertically */
+      max-width: 100%; /* Take up 100% of container width */
+      margin: 10px 0; /* Adjust margin as needed */
+    }
+  }
+
+  @media (max-width: 425px) {
+    /* Reset the flex properties to make it stack vertically */
+    flex: 0 0 100%;
+    max-width: 100%;
+    margin: 10px 0;  /* Adjust margin as needed */
+  }
+}
+
+@media (max-width: 425px) {
+  .custom-col {
+    flex: 0 0 100% !important;
+    max-width: 100% !important;
+  }
+}
