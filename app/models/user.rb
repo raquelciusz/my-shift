@@ -22,11 +22,11 @@ class User < ApplicationRecord
   validates :email, presence: true, uniqueness: true
   # validates :email, format: { with: /\A[\w+\-.]+@[a-z\d\-]+(\.[a-z\d\-]+)*\.[a-z]+\z/i }
 
-  validates :cpf, presence: true, uniqueness: true
-  validate :valid_cpf
+  validates :cpf, presence: false, uniqueness: false
+  # validate :valid_cpf
   # validates :CPF, format: { with: /\A\d{3}\.\d{3}\.\d{3}\-\d{2}\Z/ }
 
-  validates :re, presence: true, uniqueness: true
+  validates :re, presence: false, uniqueness: false
 
   # validates :RE, format: { with: /\d+/ }
 

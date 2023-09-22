@@ -1,112 +1,116 @@
-<div class="home-container">
+<header class="home-container">
+  <div class="plane-bg"></div>
   <div class="home-intro">
-    <div class="col plane-bg">
-    </div>
-    <div class="col-7">
-      <div class="text-center m-5">
-        <h1>
-          <div class="home-h1-blue">
-            Life planning made <span class="home-h1-red"data-controller="typed-js"></span>
-          </div>
+    <div class="col plane-bg"></div>
+    <div class="col-7 d-flex justify-content-center align-items-center">
+      <div class="home-content">
+        <h1 class="home-h1-blue">
+          Life planning made
+          <p><span class="home-h1-red" data-controller="typed-js"></span></p>
         </h1>
-        <h5 class="home-desc"><strong class="home-desc-bold">MyShift</strong> é uma plataforma virtual que permite você <strong class="home-desc-bold">trocar e oferecer </strong> escalas de trabalho dentro da sua companhia aérea. </h5>
-      </div>
-      <div class="d-flex justify-content-center m-1">
-        <iframe src="https://player.vimeo.com/video/779273627?&autoplay=1&h=b94f038c5c&badge=0&autopause=0&player_id=0&app_id=58479" frameborder="0" allow="autoplay; fullscreen;" allowfullscreen  title="institucional myshift.mp4"></iframe>
+        <div class="video-container">
+          <iframe src="https://player.vimeo.com/video/779273627?&autoplay=1&h=b94f038c5c&badge=0&autopause=0&player_id=0&app_id=58479" frameborder="0" allow="autoplay; fullscreen;" allowfullscreen muted title="institucional myshift.mp4"></iframe>
+        </div>
+        <h5 class="home-desc">
+          <strong class="home-h1-red">MyShift</strong> is a virtual platform that allows you to <strong class="home-h1-red">exchange and offer</strong> work schedules within your airline company.
+        </h5>
       </div>
     </div>
-    <div class="col col plane-bg">
-    </div>
+    <div class="col plane-bg"></div>
   </div>
-</div>
-
-<%# 2a DIV - CARDS %>
-
-<div class="home-cards">
-  <section class="page-contain" style="background-image: url(<%= asset_path 'world-map-pins.jpg'%>);">
-    <a href="/users/sign_up" class="data-card">
-      <h3>Trocar</h3>
-      <h4 class="mt-2">Surgiu um compromisso de última hora?</h4>
-      <p>My Shift facilita a sua vida!</p>
-      <span class="link-text">
-        Cadastre-se já!
-        <svg width="25" height="16" viewBox="0 0 25 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <path fill-rule="evenodd" clip-rule="evenodd" d="M17.8631 0.929124L24.2271 7.29308C24.6176 7.68361 24.6176 8.31677 24.2271 8.7073L17.8631 15.0713C17.4726 15.4618 16.8394 15.4618 16.4489 15.0713C16.0584 14.6807 16.0584 14.0476 16.4489 13.657L21.1058 9.00019H0.47998V7.00019H21.1058L16.4489 2.34334C16.0584 1.95281 16.0584 1.31965 16.4489 0.929124C16.8394 0.538599 17.4726 0.538599 17.8631 0.929124Z" fill="#DA1212"/>
-        </svg>
-      </span>
-    </a>
-    <a href="/users/sign_up" class="data-card">
-      <h3>Folgar</h3>
-      <h4 class="mt-2">Folga, Final de semana, Feriado e Férias...</h4>
-      <p>Tudo com F de FELICIDADE!</p>
-        <span class="link-text">
-          Cadastre-se já!
-          <svg width="25" height="16" viewBox="0 0 25 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path fill-rule="evenodd" clip-rule="evenodd" d="M17.8631 0.929124L24.2271 7.29308C24.6176 7.68361 24.6176 8.31677 24.2271 8.7073L17.8631 15.0713C17.4726 15.4618 16.8394 15.4618 16.4489 15.0713C16.0584 14.6807 16.0584 14.0476 16.4489 13.657L21.1058 9.00019H0.47998V7.00019H21.1058L16.4489 2.34334C16.0584 1.95281 16.0584 1.31965 16.4489 0.929124C16.8394 0.538599 17.4726 0.538599 17.8631 0.929124Z" fill="#DA1212"/>
-          </svg>
-        </span>
-    </a>
-    <a href="/users/sign_up" class="data-card">
-      <h3>Trabalhar</h3>
-      <h4 class="mt-2">Precisando de grana?</h4>
-      <p>Gostaria de trabalhar mais?</p>
-      <span class="link-text">
-        Cadastre-se já!
-        <svg width="25" height="16" viewBox="0 0 25 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <path fill-rule="evenodd" clip-rule="evenodd" d="M17.8631 0.929124L24.2271 7.29308C24.6176 7.68361 24.6176 8.31677 24.2271 8.7073L17.8631 15.0713C17.4726 15.4618 16.8394 15.4618 16.4489 15.0713C16.0584 14.6807 16.0584 14.0476 16.4489 13.657L21.1058 9.00019H0.47998V7.00019H21.1058L16.4489 2.34334C16.0584 1.95281 16.0584 1.31965 16.4489 0.929124C16.8394 0.538599 17.4726 0.538599 17.8631 0.929124Z" fill="#DA1212"/>
-        </svg>
-      </span>
-    </a>
+</header>
+<section class="home-cards">
+  <!-- Cards Section -->
+  <div class="container">
+    <div class="row flex-wrap">
+      <!-- Card 1 -->
+      <div class="col-md-4 custom-col">
+        <a href="/users/sign_up" class="data-card">
+          <h3>Swap & Adapt</h3>
+          <h4 class="mt-2">Unexpected Plans? No Problem!</h4>
+          <p>MyShift acts as your personal scheduling hero, making last-minute changes a breeze.</p>
+          <span class="link-text">
+            Seize Control, Sign Up Now!
+            <svg width="25" height="16" viewBox="0 0 25 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path fill-rule="evenodd" clip-rule="evenodd" d="M17.8631 0.929124L24.2271 7.29308C24.6176 7.68361 24.6176 8.31677 24.2271 8.7073L17.8631 15.0713C17.4726 15.4618 16.8394 15.4618 16.4489 15.0713C16.0584 14.6807 16.0584 14.0476 16.4489 13.657L21.1058 9.00019H0.47998V7.00019H21.1058L16.4489 2.34334C16.0584 1.95281 16.0584 1.31965 16.4489 0.929124C16.8394 0.538599 17.4726 0.538599 17.8631 0.929124Z" fill="#DA1212"/>
+            </svg>
+          </a>
+        </div>
+        <!-- Card 2 -->
+        <div class="col-md-4 custom-col">
+          <a href="/users/sign_up" class="data-card">
+            <h3>Relax & Rejuvenate</h3>
+          <h4 class="mt-2">Craving Time Off? We've Got You!</h4>
+          <p>Weekends, holidays, or spontaneous days off—it all starts with an 'H' for Happiness here at MyShift.</p>
+          <span class="link-text">Unwind Better, Sign Up Now!</span>
+          </a>
+        </div>
+        <!-- Card 3 -->
+        <div class="col-md-4 custom-col">
+          <a href="/users/sign_up" class="data-card">
+            <h3>Work & Prosper</h3>
+          <h4 class="mt-2">Eyeing Extra Income?</h4>
+          <p>Boost your earnings effortlessly. If you're looking to hustle, MyShift is your playground.</p>
+          <span class="link-text">Earn More, Sign Up Now!</span>
+          </a>
+        </div>
+      </div>
+    </div>
   </section>
-</div>
-<div id="sobre">
-  <div class="div-sobre">
-    <div class="coluna-50">
-      <div class="card-sobre m-5">
-        <%= image_tag 'breno.png' %>
-        <div class="card-sobre-infos">
-          <h2>Breno Augusto</h2>
-          <p>Programador Full Stack, com habilidades em Ruby on Rails, JavaScript, SQL, CSS e HTML.</p>
+  <div class="combined-section">
+    <!-- Content Section -->
+    <section class="content-section">
+      <div class="container">
+        <div class="card mt-5">
+          <h5 class="justify-content-center m-5 font-size-lg">
+            <p>In the aviation industry, the battle between work and life rages on. MyShift emerges as the savior,
+              a specialized platform crafted by four visionary programmers. Say goodbye to missed milestones—weddings,
+              birthdays, and school events—as MyShift simplifies shift swaps in an organized and hassle-free way.</p>
+            <p>Our mission? To harmonize work and social life seamlessly. MyShift empowers you to effortlessly offer,
+              view, and request shift changes, sparing you from the chaos of scattered WhatsApp groups. Join us in embracing
+              a life where work and living find perfect balance.
+              Welcome to MyShift, where every moment is savored, and your dreams take flight.</p>
+          </h5>
         </div>
       </div>
-      <div class="card-sobre m-5">
-        <%= image_tag 'raquel.png' %>
-        <div class="card-sobre-infos">
-          <h2>Raquel Ciuz</h2>
-          <p>Programadora Full Stack, com habilidades em Ruby on Rails, JavaScript, SQL, CSS e HTML</p>
+    </section>
+    <!-- Team Section -->
+    <section class="team-section">
+      <div class="container">
+        <div class="div-sobre">
+          <!-- Team Member 1 -->
+          <div class="card-sobre col-md-3">
+            <%= image_tag 'breno.png', alt: 'Breno Augusto' %>
+            <div class="card-sobre-infos">
+              <h2>Breno Augusto</h2>
+              <h6 class="mt-6">Full Stack Programmer with skills in Ruby on Rails, JavaScript, SQL, CSS, and HTML.</h6>
+            </div>
+          </div>
+          <!-- Team Member 2 -->
+          <div class="card-sobre col-md-3">
+            <%= image_tag 'raquel.png', alt: 'Raquel Ciuz' %>
+            <div class="card-sobre-infos">
+              <h2>Raquel Ciuz</h2>
+              <h6 class="mt-3">Full Stack Programmer with skills in Ruby on Rails, JavaScript, SQL, CSS, and HTML.</h6>
+            </div>
+          </div>
+          <!-- Team Member 3 -->
+          <div class="card-sobre col-md-3">
+            <%= image_tag 'renoir.png', alt: 'Renoir Lucena' %>
+            <div class="card-sobre-infos">
+              <h2>Renoir Lucena</h2>
+              <h6 class="mt-3">Full Stack Programmer with skills in Ruby on Rails, JavaScript, SQL, CSS, and HTML.</h6>
+            </div>
+          </div>
+          <!-- Team Member 4 -->
+          <div class="card-sobre col-md-3">
+            <%= image_tag 'tais.png', alt: 'Taís de Campos' %>
+            <div class="card-sobre-infos">
+              <h2>Taís de Campos</h2>
+              <h6 class="mt-3">Full Stack Programmer with skills in Ruby on Rails, JavaScript, SQL, CSS, and HTML.</h6>
+            </div>
+          </div>
         </div>
       </div>
-      <div class="card-sobre m-5">
-        <%= image_tag 'renoir.png' %>
-        <div class="card-sobre-infos">
-          <h2>Renoir Lucena</h2>
-          <p>Programador Full Stack, com habilidades em Ruby on Rails, JavaScript, SQL, CSS e HTML.</p>
-        </div>
-      </div>
-      <div class="card-sobre m-5">
-        <%= image_tag 'tais.png' %>
-        <div class="card-sobre-infos">
-          <h2>Taís de Campos</h2>
-          <p>Programadora Full Stack, com habilidades em Ruby on Rails, JavaScript, SQL, CSS e HTML</p>
-        </div>
-      </div>
-    </div>
-    <div class="coluna-50">
-        <h5 class="justify-content-center m-5 font-size-lg">Existe um conflito muito grande entre escala de trabalho
-         e organização da vida pessoal dentro do ramo da aviação. A cada final de mês a tripulação e pessoal de
-         terra das companhias recebem escalas de trabalho do mês seguinte e muitas vezes a escala não é a desejada,
-         comprometendo assim o planejamento de vida social dos mesmos.
-         Imagina só ficar de fora de um casamento, batizado, aniversário, apresentação do filho na escola
-         e outros eventos importantes no círculo do convívio familiar. A troca de escala com colegas de trabalho
-         é permitida dentro das companhias, porém o difícil é encontrar as pessoas que desejam a mesma em mensagens
-         que se perdem dentro de grupos de whatsapp que possuem diversos tipos de assuntos.</h5>
-
-        <h5 class="justify-content-center m-5 font-size-lg">Com o propósito de resolver este problema,
-        quatro programadores se reuniram para criar uma plataforma especializada em troca de escalas
-        dentro da indústria da aviação, assim nasceu a MyShift. MyShift permite que o tripulante possa ofertar,
-        ver e solicitar chaves de trabalho dentro da plataforma de uma forma muito simples e organizada
-        afim que se obtenha aqueles dias de folga e ou trabalho tão desejados. Nossa missão é conciliar trabalho
-        e vida social.</h5>
-    </div>
+    </section>
   </div>
-</div>

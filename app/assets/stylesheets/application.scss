@@ -12,12 +12,13 @@
 @import "components/index";
 @import "components/home-navbar";
 @import "components/footer";
-@import "components/home_animation";
 @import "pages/index";
+@import "components/home";
 
 @import "pages/myprofile";
 @import "pages/newrequest";
 @import "pages/exchanges";
+@import "pages/home";
 
 body{
   min-height: 100vh;

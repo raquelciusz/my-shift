@@ -1,8 +1,27 @@
-<h1>Boas vindas ao MyShift, <%= @user.first_name %>!</h1>
-<p>
-  Você concluiu seu cadastro com sucesso.
-</p>
-<p>
-  Para iniciar sua seção no site clique no link a seguir: <%= @url %>.
-</p>
-<p>Agradecemos por se juntar à nós! Tenha um ótimo dia!</p>
+  <div class="container mt-5">
+    <div class="row justify-content-center">
+      <div class="col-md-8">
+        <div class="card">
+          <div class="card-header text-center bg-primary text-white">
+            <h1>Welcome to MyShift, <%= @user.first_name %>!</h1>
+          </div>
+          <div class="card-body">
+            <p class="text-center">
+              You have successfully completed your registration.
+            </p>
+            <p class="text-center">
+              Thank you for joining us! Have a great day!
+            </p>
+            <strong>YOU CAN CLOSE THIS TAB NOW</strong>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Optional: Add JavaScript for Bootstrap components -->
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
