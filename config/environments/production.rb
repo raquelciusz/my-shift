@@ -40,13 +40,13 @@ Rails.application.configure do
   # config.action_dispatch.x_sendfile_header = "X-Accel-Redirect" # for NGINX
 
   # Store uploaded files on the local file system (see config/storage.yml for options).
-  config.active_storage.service = :cloudinary
+  #config.active_storage.service = :cloudinary
 
 
   # Cloudinary configuration
-  config.cloudinary.cloud_name = ENV.fetch('CLOUDINARY_CLOUD_NAME')
-  config.cloudinary.api_key = ENV.fetch('CLOUDINARY_API_KEY')
-  config.cloudinary.api_secret = ENV.fetch('CLOUDINARY_API_SECRET')
+  #config.cloudinary.cloud_name = ENV.fetch('CLOUDINARY_CLOUD_NAME')
+  #config.cloudinary.api_key = ENV.fetch('CLOUDINARY_API_KEY')
+  #config.cloudinary.api_secret = ENV.fetch('CLOUDINARY_API_SECRET')
   # Mount Action Cable outside main process or domain.
   # config.action_cable.mount_path = nil
   # config.action_cable.url = "wss://example.com/cable"
