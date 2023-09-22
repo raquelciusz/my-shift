@@ -19,7 +19,7 @@
           <div>
             <label class="btn avatar-photo">
               <% if exchange.user.avatar.attached? %>
-                <%= cl_image_tag exchange.user.avatar.key %>
+                <%= image_tag exchange.user.avatar.key %>
               <% else %>
                 <%= image_tag "https://i1.sndcdn.com/avatars-000255771415-dx5rag-t200x200.jpg"%>
               <% end %>
@@ -45,7 +45,7 @@
           <div>
             <label class="btn avatar-photo">
               <% if exchange.request.user.avatar.attached? %>
-                <%= cl_image_tag exchange.request.user.avatar.key %>
+                <%= image_tag exchange.request.user.avatar.key %>
               <% else %>
                 <%= image_tag "https://i1.sndcdn.com/avatars-000255771415-dx5rag-t200x200.jpg"%>
               <% end %>

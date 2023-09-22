@@ -12,7 +12,7 @@
               <div class="col-4">
                 <label class="btn avatar-photo mt-4">
                   <% if current_user.avatar.attached? %>
-                    <%= cl_image_tag current_user.avatar.key %>
+                    <%= image_tag current_user.avatar.key %>
                   <% else %>
                     <%= image_tag "https://randomuser.me/api/portraits/women/49.jpg"%>
                   <% end %>
