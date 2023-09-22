@@ -44,9 +44,9 @@ Rails.application.configure do
 
 
   # Cloudinary configuration
-  config.cloudinary.cloud_name = `ENV.fetch('CLOUDINARY_CLOUD_NAME')`
-  config.cloudinary.api_key = `ENV.fetch('CLOUDINARY_API_KEY')`
-  config.cloudinary.api_secret = `ENV.fetch('CLOUDINARY_API_SECRET')`
+  config.cloudinary.cloud_name = ENV.fetch('CLOUDINARY_CLOUD_NAME')
+  config.cloudinary.api_key = ENV.fetch('CLOUDINARY_API_KEY')
+  config.cloudinary.api_secret = ENV.fetch('CLOUDINARY_API_SECRET')
   # Mount Action Cable outside main process or domain.
   # config.action_cable.mount_path = nil
   # config.action_cable.url = "wss://example.com/cable"
