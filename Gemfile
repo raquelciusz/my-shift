@@ -21,7 +21,6 @@ gem "devise"
 gem "autoprefixer-rails"
 gem "font-awesome-sass", "~> 6.1"
 gem "simple_form", github: "heartcombo/simple_form"
-gem "cloudinary"
 gem "pundit"
 gem "file_validators"
 gem "simple_calendar", "~> 2.4"
@@ -39,4 +38,3 @@ group :test do
   gem "selenium-webdriver"
   gem "webdrivers"
 end
-
