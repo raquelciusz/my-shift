@@ -1,0 +1,897 @@
+--
+-- PostgreSQL database dump
+--
+
+-- Dumped from database version 14.9 (Homebrew)
+-- Dumped by pg_dump version 14.9 (Homebrew)
+
+SET statement_timeout = 0;
+SET lock_timeout = 0;
+SET idle_in_transaction_session_timeout = 0;
+SET client_encoding = 'UTF8';
+SET standard_conforming_strings = on;
+SELECT pg_catalog.set_config('search_path', '', false);
+SET check_function_bodies = false;
+SET xmloption = content;
+SET client_min_messages = warning;
+SET row_security = off;
+
+SET default_tablespace = '';
+
+SET default_table_access_method = heap;
+
+--
+-- Name: active_storage_attachments; Type: TABLE; Schema: public; Owner: renoirlucena
+--
+
+CREATE TABLE public.active_storage_attachments (
+    id bigint NOT NULL,
+    name character varying NOT NULL,
+    record_type character varying NOT NULL,
+    record_id bigint NOT NULL,
+    blob_id bigint NOT NULL,
+    created_at timestamp(6) without time zone NOT NULL
+);
+
+
+ALTER TABLE public.active_storage_attachments OWNER TO renoirlucena;
+
+--
+-- Name: active_storage_attachments_id_seq; Type: SEQUENCE; Schema: public; Owner: renoirlucena
+--
+
+CREATE SEQUENCE public.active_storage_attachments_id_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+ALTER TABLE public.active_storage_attachments_id_seq OWNER TO renoirlucena;
+
+--
+-- Name: active_storage_attachments_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: renoirlucena
+--
+
+ALTER SEQUENCE public.active_storage_attachments_id_seq OWNED BY public.active_storage_attachments.id;
+
+
+--
+-- Name: active_storage_blobs; Type: TABLE; Schema: public; Owner: renoirlucena
+--
+
+CREATE TABLE public.active_storage_blobs (
+    id bigint NOT NULL,
+    key character varying NOT NULL,
+    filename character varying NOT NULL,
+    content_type character varying,
+    metadata text,
+    service_name character varying NOT NULL,
+    byte_size bigint NOT NULL,
+    checksum character varying,
+    created_at timestamp(6) without time zone NOT NULL
+);
+
+
+ALTER TABLE public.active_storage_blobs OWNER TO renoirlucena;
+
+--
+-- Name: active_storage_blobs_id_seq; Type: SEQUENCE; Schema: public; Owner: renoirlucena
+--
+
+CREATE SEQUENCE public.active_storage_blobs_id_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+ALTER TABLE public.active_storage_blobs_id_seq OWNER TO renoirlucena;
+
+--
+-- Name: active_storage_blobs_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: renoirlucena
+--
+
+ALTER SEQUENCE public.active_storage_blobs_id_seq OWNED BY public.active_storage_blobs.id;
+
+
+--
+-- Name: active_storage_variant_records; Type: TABLE; Schema: public; Owner: renoirlucena
+--
+
+CREATE TABLE public.active_storage_variant_records (
+    id bigint NOT NULL,
+    blob_id bigint NOT NULL,
+    variation_digest character varying NOT NULL
+);
+
+
+ALTER TABLE public.active_storage_variant_records OWNER TO renoirlucena;
+
+--
+-- Name: active_storage_variant_records_id_seq; Type: SEQUENCE; Schema: public; Owner: renoirlucena
+--
+
+CREATE SEQUENCE public.active_storage_variant_records_id_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+ALTER TABLE public.active_storage_variant_records_id_seq OWNER TO renoirlucena;
+
+--
+-- Name: active_storage_variant_records_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: renoirlucena
+--
+
+ALTER SEQUENCE public.active_storage_variant_records_id_seq OWNED BY public.active_storage_variant_records.id;
+
+
+--
+-- Name: ar_internal_metadata; Type: TABLE; Schema: public; Owner: renoirlucena
+--
+
+CREATE TABLE public.ar_internal_metadata (
+    key character varying NOT NULL,
+    value character varying,
+    created_at timestamp(6) without time zone NOT NULL,
+    updated_at timestamp(6) without time zone NOT NULL
+);
+
+
+ALTER TABLE public.ar_internal_metadata OWNER TO renoirlucena;
+
+--
+-- Name: companies; Type: TABLE; Schema: public; Owner: renoirlucena
+--
+
+CREATE TABLE public.companies (
+    id bigint NOT NULL,
+    name character varying,
+    email character varying,
+    cnpj text,
+    created_at timestamp(6) without time zone NOT NULL,
+    updated_at timestamp(6) without time zone NOT NULL
+);
+
+
+ALTER TABLE public.companies OWNER TO renoirlucena;
+
+--
+-- Name: companies_id_seq; Type: SEQUENCE; Schema: public; Owner: renoirlucena
+--
+
+CREATE SEQUENCE public.companies_id_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+ALTER TABLE public.companies_id_seq OWNER TO renoirlucena;
+
+--
+-- Name: companies_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: renoirlucena
+--
+
+ALTER SEQUENCE public.companies_id_seq OWNED BY public.companies.id;
+
+
+--
+-- Name: exchanges; Type: TABLE; Schema: public; Owner: renoirlucena
+--
+
+CREATE TABLE public.exchanges (
+    id bigint NOT NULL,
+    status character varying DEFAULT 'Pendente'::character varying,
+    created_at timestamp(6) without time zone NOT NULL,
+    updated_at timestamp(6) without time zone NOT NULL,
+    user_id bigint,
+    request_id bigint
+);
+
+
+ALTER TABLE public.exchanges OWNER TO renoirlucena;
+
+--
+-- Name: exchanges_id_seq; Type: SEQUENCE; Schema: public; Owner: renoirlucena
+--
+
+CREATE SEQUENCE public.exchanges_id_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+ALTER TABLE public.exchanges_id_seq OWNER TO renoirlucena;
+
+--
+-- Name: exchanges_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: renoirlucena
+--
+
+ALTER SEQUENCE public.exchanges_id_seq OWNED BY public.exchanges.id;
+
+
+--
+-- Name: memberships; Type: TABLE; Schema: public; Owner: renoirlucena
+--
+
+CREATE TABLE public.memberships (
+    id bigint NOT NULL,
+    category character varying,
+    created_at timestamp(6) without time zone NOT NULL,
+    updated_at timestamp(6) without time zone NOT NULL,
+    price_cents integer DEFAULT 0 NOT NULL
+);
+
+
+ALTER TABLE public.memberships OWNER TO renoirlucena;
+
+--
+-- Name: memberships_id_seq; Type: SEQUENCE; Schema: public; Owner: renoirlucena
+--
+
+CREATE SEQUENCE public.memberships_id_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+ALTER TABLE public.memberships_id_seq OWNER TO renoirlucena;
+
+--
+-- Name: memberships_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: renoirlucena
+--
+
+ALTER SEQUENCE public.memberships_id_seq OWNED BY public.memberships.id;
+
+
+--
+-- Name: orders; Type: TABLE; Schema: public; Owner: renoirlucena
+--
+
+CREATE TABLE public.orders (
+    id bigint NOT NULL,
+    user_id bigint NOT NULL,
+    membership_id bigint NOT NULL,
+    created_at timestamp(6) without time zone NOT NULL,
+    updated_at timestamp(6) without time zone NOT NULL,
+    state character varying,
+    membership_sku character varying,
+    checkout_session_id character varying,
+    amount_cents integer DEFAULT 0 NOT NULL,
+    company_id bigint
+);
+
+
+ALTER TABLE public.orders OWNER TO renoirlucena;
+
+--
+-- Name: orders_id_seq; Type: SEQUENCE; Schema: public; Owner: renoirlucena
+--
+
+CREATE SEQUENCE public.orders_id_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+ALTER TABLE public.orders_id_seq OWNER TO renoirlucena;
+
+--
+-- Name: orders_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: renoirlucena
+--
+
+ALTER SEQUENCE public.orders_id_seq OWNED BY public.orders.id;
+
+
+--
+-- Name: requests; Type: TABLE; Schema: public; Owner: renoirlucena
+--
+
+CREATE TABLE public.requests (
+    id bigint NOT NULL,
+    request_type character varying,
+    start_time timestamp(6) without time zone,
+    end_time timestamp(6) without time zone,
+    origin character varying,
+    destination character varying,
+    created_at timestamp(6) without time zone NOT NULL,
+    updated_at timestamp(6) without time zone NOT NULL,
+    user_id bigint
+);
+
+
+ALTER TABLE public.requests OWNER TO renoirlucena;
+
+--
+-- Name: requests_id_seq; Type: SEQUENCE; Schema: public; Owner: renoirlucena
+--
+
+CREATE SEQUENCE public.requests_id_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+ALTER TABLE public.requests_id_seq OWNER TO renoirlucena;
+
+--
+-- Name: requests_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: renoirlucena
+--
+
+ALTER SEQUENCE public.requests_id_seq OWNED BY public.requests.id;
+
+
+--
+-- Name: schema_migrations; Type: TABLE; Schema: public; Owner: renoirlucena
+--
+
+CREATE TABLE public.schema_migrations (
+    version character varying NOT NULL
+);
+
+
+ALTER TABLE public.schema_migrations OWNER TO renoirlucena;
+
+--
+-- Name: users; Type: TABLE; Schema: public; Owner: renoirlucena
+--
+
+CREATE TABLE public.users (
+    id bigint NOT NULL,
+    email character varying DEFAULT ''::character varying NOT NULL,
+    encrypted_password character varying DEFAULT ''::character varying NOT NULL,
+    reset_password_token character varying,
+    reset_password_sent_at timestamp(6) without time zone,
+    remember_created_at timestamp(6) without time zone,
+    created_at timestamp(6) without time zone NOT NULL,
+    updated_at timestamp(6) without time zone NOT NULL,
+    first_name character varying,
+    last_name character varying,
+    cpf text,
+    re text,
+    phone text,
+    company_id bigint,
+    admin boolean
+);
+
+
+ALTER TABLE public.users OWNER TO renoirlucena;
+
+--
+-- Name: users_id_seq; Type: SEQUENCE; Schema: public; Owner: renoirlucena
+--
+
+CREATE SEQUENCE public.users_id_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+ALTER TABLE public.users_id_seq OWNER TO renoirlucena;
+
+--
+-- Name: users_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: renoirlucena
+--
+
+ALTER SEQUENCE public.users_id_seq OWNED BY public.users.id;
+
+
+--
+-- Name: active_storage_attachments id; Type: DEFAULT; Schema: public; Owner: renoirlucena
+--
+
+ALTER TABLE ONLY public.active_storage_attachments ALTER COLUMN id SET DEFAULT nextval('public.active_storage_attachments_id_seq'::regclass);
+
+
+--
+-- Name: active_storage_blobs id; Type: DEFAULT; Schema: public; Owner: renoirlucena
+--
+
+ALTER TABLE ONLY public.active_storage_blobs ALTER COLUMN id SET DEFAULT nextval('public.active_storage_blobs_id_seq'::regclass);
+
+
+--
+-- Name: active_storage_variant_records id; Type: DEFAULT; Schema: public; Owner: renoirlucena
+--
+
+ALTER TABLE ONLY public.active_storage_variant_records ALTER COLUMN id SET DEFAULT nextval('public.active_storage_variant_records_id_seq'::regclass);
+
+
+--
+-- Name: companies id; Type: DEFAULT; Schema: public; Owner: renoirlucena
+--
+
+ALTER TABLE ONLY public.companies ALTER COLUMN id SET DEFAULT nextval('public.companies_id_seq'::regclass);
+
+
+--
+-- Name: exchanges id; Type: DEFAULT; Schema: public; Owner: renoirlucena
+--
+
+ALTER TABLE ONLY public.exchanges ALTER COLUMN id SET DEFAULT nextval('public.exchanges_id_seq'::regclass);
+
+
+--
+-- Name: memberships id; Type: DEFAULT; Schema: public; Owner: renoirlucena
+--
+
+ALTER TABLE ONLY public.memberships ALTER COLUMN id SET DEFAULT nextval('public.memberships_id_seq'::regclass);
+
+
+--
+-- Name: orders id; Type: DEFAULT; Schema: public; Owner: renoirlucena
+--
+
+ALTER TABLE ONLY public.orders ALTER COLUMN id SET DEFAULT nextval('public.orders_id_seq'::regclass);
+
+
+--
+-- Name: requests id; Type: DEFAULT; Schema: public; Owner: renoirlucena
+--
+
+ALTER TABLE ONLY public.requests ALTER COLUMN id SET DEFAULT nextval('public.requests_id_seq'::regclass);
+
+
+--
+-- Name: users id; Type: DEFAULT; Schema: public; Owner: renoirlucena
+--
+
+ALTER TABLE ONLY public.users ALTER COLUMN id SET DEFAULT nextval('public.users_id_seq'::regclass);
+
+
+--
+-- Data for Name: active_storage_attachments; Type: TABLE DATA; Schema: public; Owner: renoirlucena
+--
+
+COPY public.active_storage_attachments (id, name, record_type, record_id, blob_id, created_at) FROM stdin;
+3	avatar	User	1	3	2022-12-05 12:37:58.91391
+5	avatar	User	5	5	2022-12-05 14:24:21.384181
+\.
+
+
+--
+-- Data for Name: active_storage_blobs; Type: TABLE DATA; Schema: public; Owner: renoirlucena
+--
+
+COPY public.active_storage_blobs (id, key, filename, content_type, metadata, service_name, byte_size, checksum, created_at) FROM stdin;
+3	cdmacmlamd1d4ppdkmdikuxrude9	renoir.jpg	image/jpeg	{"identified":true,"analyzed":true}	cloudinary	5526171	3zPbOeahtizUkt8U0ppFNA==	2022-12-05 12:37:58.912867
+5	cvufbmes490gbrdkrcmmajegghct	breno.jpg	image/jpeg	{"identified":true,"analyzed":true}	cloudinary	3486766	4kegUd3szN3KV5GEoj7brw==	2022-12-05 14:24:21.382839
+\.
+
+
+--
+-- Data for Name: active_storage_variant_records; Type: TABLE DATA; Schema: public; Owner: renoirlucena
+--
+
+COPY public.active_storage_variant_records (id, blob_id, variation_digest) FROM stdin;
+\.
+
+
+--
+-- Data for Name: ar_internal_metadata; Type: TABLE DATA; Schema: public; Owner: renoirlucena
+--
+
+COPY public.ar_internal_metadata (key, value, created_at, updated_at) FROM stdin;
+environment	development	2022-11-29 16:27:19.290842	2022-11-29 16:27:19.290842
+\.
+
+
+--
+-- Data for Name: companies; Type: TABLE DATA; Schema: public; Owner: renoirlucena
+--
+
+COPY public.companies (id, name, email, cnpj, created_at, updated_at) FROM stdin;
+1	Azul	azul@blue.com	18797645000162	2022-12-02 15:05:46.060198	2022-12-02 15:05:46.060198
+\.
+
+
+--
+-- Data for Name: exchanges; Type: TABLE DATA; Schema: public; Owner: renoirlucena
+--
+
+COPY public.exchanges (id, status, created_at, updated_at, user_id, request_id) FROM stdin;
+1	\N	2022-12-05 17:18:47.292752	2022-12-05 17:18:47.292752	6	1
+2	\N	2022-12-05 18:12:38.507914	2022-12-05 18:12:38.507914	1	2
+\.
+
+
+--
+-- Data for Name: memberships; Type: TABLE DATA; Schema: public; Owner: renoirlucena
+--
+
+COPY public.memberships (id, category, created_at, updated_at, price_cents) FROM stdin;
+3	Anual	2022-12-07 15:08:37.788041	2022-12-08 18:04:17.521186	10000
+4	Mensal	2022-12-08 16:59:05.185424	2022-12-08 18:05:27.16978	1000
+\.
+
+
+--
+-- Data for Name: orders; Type: TABLE DATA; Schema: public; Owner: renoirlucena
+--
+
+COPY public.orders (id, user_id, membership_id, created_at, updated_at, state, membership_sku, checkout_session_id, amount_cents, company_id) FROM stdin;
+103	6	3	2023-09-22 04:42:27.700194	2023-09-22 04:42:27.700194	pending	Anual	\N	10000	\N
+\.
+
+
+--
+-- Data for Name: requests; Type: TABLE DATA; Schema: public; Owner: renoirlucena
+--
+
+COPY public.requests (id, request_type, start_time, end_time, origin, destination, created_at, updated_at, user_id) FROM stdin;
+1	Folgar	2022-12-14 12:00:00	2022-12-15 12:00:00	sao paulo	rio de janeiro	2022-12-05 14:18:03.766586	2022-12-05 14:18:03.766586	1
+2	Folgar	2022-12-07 12:00:00	2022-12-08 12:00:00	sao paulo	rio de janeiro	2022-12-05 17:23:36.598195	2022-12-05 17:23:36.598195	6
+3	Folgar	2022-12-06 12:00:00	2022-12-07 12:00:00	sao paulo	rio de janeiro	2022-12-05 18:24:21.233193	2022-12-05 18:24:21.233193	1
+4	Trocar	2022-12-07 12:00:00	2022-12-14 12:00:00	sao paulo	rio de janeiro	2022-12-06 13:19:16.124932	2022-12-06 13:19:16.124932	1
+5	Trocar	2022-12-07 12:00:00	2022-12-14 12:00:00	curitiba	rio de janeiro	2022-12-06 13:53:16.639558	2022-12-06 13:53:16.639558	1
+\.
+
+
+--
+-- Data for Name: schema_migrations; Type: TABLE DATA; Schema: public; Owner: renoirlucena
+--
+
+COPY public.schema_migrations (version) FROM stdin;
+20221128165418
+20221128172746
+20221128174500
+20221128174841
+20221128180556
+20221128180734
+20221128180918
+20221128181318
+20221128181557
+20221128181717
+20221128205339
+20221201203724
+20221205133537
+20221205210358
+20221207144202
+20221207144425
+20221207144612
+20221207145155
+20221207150327
+20221208141338
+20230922055150
+\.
+
+
+--
+-- Data for Name: users; Type: TABLE DATA; Schema: public; Owner: renoirlucena
+--
+
+COPY public.users (id, email, encrypted_password, reset_password_token, reset_password_sent_at, remember_created_at, created_at, updated_at, first_name, last_name, cpf, re, phone, company_id, admin) FROM stdin;
+5	renoir@email.com	$2a$12$PfowJFFGBHUEFbGcIyVpu.dT6vqAt3rrWTB7BT2ihqLV.m50kG/au	\N	\N	\N	2022-12-05 14:24:21.376518	2022-12-05 14:24:21.38625	Chico	Xavier	309.313.600-80	43535	11972883155	1	\N
+6	teste@teste.com	$2a$12$UeToVnZlINfLHMcA6e8iae7uS4LCHtTpgXZFajWUx3UT88U1wu1hu	\N	\N	\N	2022-12-05 14:27:09.757525	2022-12-05 14:27:09.757525	JOrge	asfasf	135.828.100-97	32434234	324234234	1	\N
+1	renoirlucena@gmail.com	$2a$12$f8rdRyxMJHkl6aAl3EWaKO0YsQcXszEvYnRzOrWynFdfKI7M1D9JK	6a8d8a00dbcd263f00e171a0fb89b6774ab9568d5885254f10e62d4747ae95ea	2023-09-08 21:34:38.649454	\N	2022-12-02 15:06:13.845325	2023-09-08 21:34:38.649636	RENOIR HOLANDA LUCENA	LUCENA	234234234	2342342	11973753155	1	\N
+7	renoir@lidilopez.com.br	$2a$12$ZK3rd7ssA2U2FW0xzqeOHeiHDqJbP6uh4DHmzTlFb5AXzsZKY66e6	\N	\N	\N	2023-09-08 21:35:53.104239	2023-09-08 21:35:53.104239	RENOIR	LUCENA	67163092334	23432423	3466346222	1	\N
+8	hi@renoirlucena.dev	$2a$12$/WsYa8PcXhWAJ7pSIW3uOeFyRNlT2DGB5iba2jqYQlKOf3xY.42Hu	\N	\N	\N	2023-09-22 04:44:46.305275	2023-09-22 04:44:46.305275	Lidiane	Lucena	26798214835	34242	34663462222	1	\N
+9	errenoir@lidilopez.com.br	$2a$12$aoyHYJrbh4ItSKvkgMxY6ezY4Yk.elgl5jN5Jadw4ZzyXK5vpfQzy	\N	\N	\N	2023-09-22 04:54:01.393741	2023-09-22 04:54:01.393741	asdasd	asdasdasd		2323	323423	1	\N
+14	x@xxx.com	$2a$12$bUo9rGAcBT3HyeG2yQwVTOD7w3KVE.b.jcqG6W6IVs1.envU3aWXi	\N	\N	\N	2023-09-22 05:06:53.468245	2023-09-22 05:06:53.468245	dsafdsfsdf	sdffsdfsd		234234	234324324	1	\N
+15	fdsf@dsafds.com	$2a$12$o6ep8dDqEVLAKmrjQcXuu.dGOs5eNSzrWSAt7HIlsmEt0Wme0qxJq	\N	\N	\N	2023-09-22 05:07:29.87019	2023-09-22 05:07:29.87019	asdfdsafdsf	sfsdfd		233232	2324324	1	\N
+16	sadasd@fasdfsd.com	$2a$12$xkxvSDwfdPuPXEHsXf1x0eeBhW1ghKmIZX97mA6vlc4tnLCH/PlXm	\N	\N	\N	2023-09-22 05:13:23.859095	2023-09-22 05:13:23.859095	ASDASD	ASDASD		233223	234234	1	\N
+17	asdasdasd@dsa.com	$2a$12$/5DyzhMyb2FS7vtE8PUFZe3RPK2VOyL0fwR7PLzIy1KKTwePMYWoa	\N	\N	\N	2023-09-22 05:14:45.867728	2023-09-22 05:14:45.867728	ASDASD	SADASD		32324234	423423	1	\N
+18	asdad@dasdc.com	$2a$12$xduoMvWYruqeDtK9dUbcyer3WjZv4fMnE57duxGVxVliZkyTcHo16	\N	\N	\N	2023-09-22 05:18:02.728308	2023-09-22 05:18:02.728308	asdasd	asdasd			123123123	1	\N
+\.
+
+
+--
+-- Name: active_storage_attachments_id_seq; Type: SEQUENCE SET; Schema: public; Owner: renoirlucena
+--
+
+SELECT pg_catalog.setval('public.active_storage_attachments_id_seq', 5, true);
+
+
+--
+-- Name: active_storage_blobs_id_seq; Type: SEQUENCE SET; Schema: public; Owner: renoirlucena
+--
+
+SELECT pg_catalog.setval('public.active_storage_blobs_id_seq', 5, true);
+
+
+--
+-- Name: active_storage_variant_records_id_seq; Type: SEQUENCE SET; Schema: public; Owner: renoirlucena
+--
+
+SELECT pg_catalog.setval('public.active_storage_variant_records_id_seq', 1, false);
+
+
+--
+-- Name: companies_id_seq; Type: SEQUENCE SET; Schema: public; Owner: renoirlucena
+--
+
+SELECT pg_catalog.setval('public.companies_id_seq', 1, true);
+
+
+--
+-- Name: exchanges_id_seq; Type: SEQUENCE SET; Schema: public; Owner: renoirlucena
+--
+
+SELECT pg_catalog.setval('public.exchanges_id_seq', 2, true);
+
+
+--
+-- Name: memberships_id_seq; Type: SEQUENCE SET; Schema: public; Owner: renoirlucena
+--
+
+SELECT pg_catalog.setval('public.memberships_id_seq', 4, true);
+
+
+--
+-- Name: orders_id_seq; Type: SEQUENCE SET; Schema: public; Owner: renoirlucena
+--
+
+SELECT pg_catalog.setval('public.orders_id_seq', 103, true);
+
+
+--
+-- Name: requests_id_seq; Type: SEQUENCE SET; Schema: public; Owner: renoirlucena
+--
+
+SELECT pg_catalog.setval('public.requests_id_seq', 5, true);
+
+
+--
+-- Name: users_id_seq; Type: SEQUENCE SET; Schema: public; Owner: renoirlucena
+--
+
+SELECT pg_catalog.setval('public.users_id_seq', 18, true);
+
+
+--
+-- Name: active_storage_attachments active_storage_attachments_pkey; Type: CONSTRAINT; Schema: public; Owner: renoirlucena
+--
+
+ALTER TABLE ONLY public.active_storage_attachments
+    ADD CONSTRAINT active_storage_attachments_pkey PRIMARY KEY (id);
+
+
+--
+-- Name: active_storage_blobs active_storage_blobs_pkey; Type: CONSTRAINT; Schema: public; Owner: renoirlucena
+--
+
+ALTER TABLE ONLY public.active_storage_blobs
+    ADD CONSTRAINT active_storage_blobs_pkey PRIMARY KEY (id);
+
+
+--
+-- Name: active_storage_variant_records active_storage_variant_records_pkey; Type: CONSTRAINT; Schema: public; Owner: renoirlucena
+--
+
+ALTER TABLE ONLY public.active_storage_variant_records
+    ADD CONSTRAINT active_storage_variant_records_pkey PRIMARY KEY (id);
+
+
+--
+-- Name: ar_internal_metadata ar_internal_metadata_pkey; Type: CONSTRAINT; Schema: public; Owner: renoirlucena
+--
+
+ALTER TABLE ONLY public.ar_internal_metadata
+    ADD CONSTRAINT ar_internal_metadata_pkey PRIMARY KEY (key);
+
+
+--
+-- Name: companies companies_pkey; Type: CONSTRAINT; Schema: public; Owner: renoirlucena
+--
+
+ALTER TABLE ONLY public.companies
+    ADD CONSTRAINT companies_pkey PRIMARY KEY (id);
+
+
+--
+-- Name: exchanges exchanges_pkey; Type: CONSTRAINT; Schema: public; Owner: renoirlucena
+--
+
+ALTER TABLE ONLY public.exchanges
+    ADD CONSTRAINT exchanges_pkey PRIMARY KEY (id);
+
+
+--
+-- Name: memberships memberships_pkey; Type: CONSTRAINT; Schema: public; Owner: renoirlucena
+--
+
+ALTER TABLE ONLY public.memberships
+    ADD CONSTRAINT memberships_pkey PRIMARY KEY (id);
+
+
+--
+-- Name: orders orders_pkey; Type: CONSTRAINT; Schema: public; Owner: renoirlucena
+--
+
+ALTER TABLE ONLY public.orders
+    ADD CONSTRAINT orders_pkey PRIMARY KEY (id);
+
+
+--
+-- Name: requests requests_pkey; Type: CONSTRAINT; Schema: public; Owner: renoirlucena
+--
+
+ALTER TABLE ONLY public.requests
+    ADD CONSTRAINT requests_pkey PRIMARY KEY (id);
+
+
+--
+-- Name: schema_migrations schema_migrations_pkey; Type: CONSTRAINT; Schema: public; Owner: renoirlucena
+--
+
+ALTER TABLE ONLY public.schema_migrations
+    ADD CONSTRAINT schema_migrations_pkey PRIMARY KEY (version);
+
+
+--
+-- Name: users users_pkey; Type: CONSTRAINT; Schema: public; Owner: renoirlucena
+--
+
+ALTER TABLE ONLY public.users
+    ADD CONSTRAINT users_pkey PRIMARY KEY (id);
+
+
+--
+-- Name: index_active_storage_attachments_on_blob_id; Type: INDEX; Schema: public; Owner: renoirlucena
+--
+
+CREATE INDEX index_active_storage_attachments_on_blob_id ON public.active_storage_attachments USING btree (blob_id);
+
+
+--
+-- Name: index_active_storage_attachments_uniqueness; Type: INDEX; Schema: public; Owner: renoirlucena
+--
+
+CREATE UNIQUE INDEX index_active_storage_attachments_uniqueness ON public.active_storage_attachments USING btree (record_type, record_id, name, blob_id);
+
+
+--
+-- Name: index_active_storage_blobs_on_key; Type: INDEX; Schema: public; Owner: renoirlucena
+--
+
+CREATE UNIQUE INDEX index_active_storage_blobs_on_key ON public.active_storage_blobs USING btree (key);
+
+
+--
+-- Name: index_active_storage_variant_records_uniqueness; Type: INDEX; Schema: public; Owner: renoirlucena
+--
+
+CREATE UNIQUE INDEX index_active_storage_variant_records_uniqueness ON public.active_storage_variant_records USING btree (blob_id, variation_digest);
+
+
+--
+-- Name: index_exchanges_on_request_id; Type: INDEX; Schema: public; Owner: renoirlucena
+--
+
+CREATE INDEX index_exchanges_on_request_id ON public.exchanges USING btree (request_id);
+
+
+--
+-- Name: index_exchanges_on_user_id; Type: INDEX; Schema: public; Owner: renoirlucena
+--
+
+CREATE INDEX index_exchanges_on_user_id ON public.exchanges USING btree (user_id);
+
+
+--
+-- Name: index_orders_on_membership_id; Type: INDEX; Schema: public; Owner: renoirlucena
+--
+
+CREATE INDEX index_orders_on_membership_id ON public.orders USING btree (membership_id);
+
+
+--
+-- Name: index_orders_on_user_id; Type: INDEX; Schema: public; Owner: renoirlucena
+--
+
+CREATE INDEX index_orders_on_user_id ON public.orders USING btree (user_id);
+
+
+--
+-- Name: index_requests_on_user_id; Type: INDEX; Schema: public; Owner: renoirlucena
+--
+
+CREATE INDEX index_requests_on_user_id ON public.requests USING btree (user_id);
+
+
+--
+-- Name: index_users_on_company_id; Type: INDEX; Schema: public; Owner: renoirlucena
+--
+
+CREATE INDEX index_users_on_company_id ON public.users USING btree (company_id);
+
+
+--
+-- Name: index_users_on_email; Type: INDEX; Schema: public; Owner: renoirlucena
+--
+
+CREATE UNIQUE INDEX index_users_on_email ON public.users USING btree (email);
+
+
+--
+-- Name: index_users_on_reset_password_token; Type: INDEX; Schema: public; Owner: renoirlucena
+--
+
+CREATE UNIQUE INDEX index_users_on_reset_password_token ON public.users USING btree (reset_password_token);
+
+
+--
+-- Name: orders fk_rails_69d2ccd863; Type: FK CONSTRAINT; Schema: public; Owner: renoirlucena
+--
+
+ALTER TABLE ONLY public.orders
+    ADD CONSTRAINT fk_rails_69d2ccd863 FOREIGN KEY (membership_id) REFERENCES public.memberships(id);
+
+
+--
+-- Name: users fk_rails_7682a3bdfe; Type: FK CONSTRAINT; Schema: public; Owner: renoirlucena
+--
+
+ALTER TABLE ONLY public.users
+    ADD CONSTRAINT fk_rails_7682a3bdfe FOREIGN KEY (company_id) REFERENCES public.companies(id);
+
+
+--
+-- Name: requests fk_rails_8ead8b1e6b; Type: FK CONSTRAINT; Schema: public; Owner: renoirlucena
+--
+
+ALTER TABLE ONLY public.requests
+    ADD CONSTRAINT fk_rails_8ead8b1e6b FOREIGN KEY (user_id) REFERENCES public.users(id);
+
+
+--
+-- Name: active_storage_variant_records fk_rails_993965df05; Type: FK CONSTRAINT; Schema: public; Owner: renoirlucena
+--
+
+ALTER TABLE ONLY public.active_storage_variant_records
+    ADD CONSTRAINT fk_rails_993965df05 FOREIGN KEY (blob_id) REFERENCES public.active_storage_blobs(id);
+
+
+--
+-- Name: exchanges fk_rails_aa961b25d8; Type: FK CONSTRAINT; Schema: public; Owner: renoirlucena
+--
+
+ALTER TABLE ONLY public.exchanges
+    ADD CONSTRAINT fk_rails_aa961b25d8 FOREIGN KEY (request_id) REFERENCES public.requests(id);
+
+
+--
+-- Name: active_storage_attachments fk_rails_c3b3935057; Type: FK CONSTRAINT; Schema: public; Owner: renoirlucena
+--
+
+ALTER TABLE ONLY public.active_storage_attachments
+    ADD CONSTRAINT fk_rails_c3b3935057 FOREIGN KEY (blob_id) REFERENCES public.active_storage_blobs(id);
+
+
+--
+-- Name: exchanges fk_rails_d7ccfea137; Type: FK CONSTRAINT; Schema: public; Owner: renoirlucena
+--
+
+ALTER TABLE ONLY public.exchanges
+    ADD CONSTRAINT fk_rails_d7ccfea137 FOREIGN KEY (user_id) REFERENCES public.users(id);
+
+
+--
+-- Name: orders fk_rails_f868b47f6a; Type: FK CONSTRAINT; Schema: public; Owner: renoirlucena
+--
+
+ALTER TABLE ONLY public.orders
+    ADD CONSTRAINT fk_rails_f868b47f6a FOREIGN KEY (user_id) REFERENCES public.users(id);
+
+
+--
+-- PostgreSQL database dump complete
+--
+
