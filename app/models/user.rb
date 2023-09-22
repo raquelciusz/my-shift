@@ -33,7 +33,7 @@ class User < ApplicationRecord
   validates :phone, presence: true, uniqueness: true
   # validates :phone, format: { with: /(\d{2})(\d{2})(\d{1})(\d{4})(\d{4})/ }
 
-  after_create :send_welcome_email
+  #after_create :send_welcome_email
 
   private
 
